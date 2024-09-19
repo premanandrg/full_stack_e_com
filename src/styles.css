@@ -1,0 +1,300 @@
+Global Styles
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f1f3f6;
+}
+
+
+
+
+.category-heading-image {
+    width: 20%; /* Adjust width as needed */
+    max-width: 800px; /* Limit the max width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image */
+    display: block; /* Ensure it behaves like a block element */
+  }
+
+  
+
+/* Header Styles */
+.header {
+    background-color: #f07f28;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header .search-bar {
+    flex: 1;
+    margin: 0 20px;
+    display: flex;
+}
+
+.header .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    font-size: 14px;
+}
+
+.header .search-bar button {
+    padding: 10px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background-color: #ff9f00;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.header .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.header .nav-links a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Carousel Styles */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Category Section Styles */
+.category-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.category-item {
+    text-align: center;
+    width: 100px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.category-item img {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+}
+
+.category-item p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Product Listing Styles */
+.product-listing {
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.product-listing h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.product-item {
+    display: inline-block;
+    width: 23%;
+    margin-right: 1%;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.product-item p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.product-item .price {
+    color: #ff5722;
+    font-weight: bold;
+}
+
+.product-item .old-price {
+    color: #757575;
+    text-decoration: line-through;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #f07f28;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Utility Styles */
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+
+
+.products-page {
+
+    
+    font-family: Arial, sans-serif;
+  }
+
+
+
+  /* Products section styles */
+.products-section {
+  padding: 20px;
+}
+
+.products-section h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.category-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.category-heading-image {
+  width: 20%;
+  max-width: 1200px;
+
+  margin: 20px auto;
+  display: block;
+}
+
+.all-products-header p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+  }
+
+  .all-products-header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin: 10px 0;
+  }
+
+  
+  /* All Products Header Styles */
+.all-products-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+
+  .category-title h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin: 10px 0;
+  }
+
+
+  /* Category Header Styles */
+.category-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+
+
+
+
+  /* src/components/EmptyState.css */
+.empty-state {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+  }
+  
+  .empty-state-icon {
+    font-size: 100px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+  }
+  
+  .empty-state h2 {
+    font-size: 24px;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .empty-state p {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  /* Bounce animation */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+
+
+  
+  
