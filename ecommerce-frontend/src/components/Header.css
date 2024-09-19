@@ -1,0 +1,112 @@
+/* Header Styles */
+.header {
+    background-color: #f07f28;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit the text color */
+    font-weight: bold; /* Optional: make it bold */
+}
+
+/* Search Bar Styles */
+.header .search-bar {
+    flex: 1;
+    margin: 0 20px;
+    display: flex;
+}
+
+.header .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Navigation Links */
+.header .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.header .nav-links a,
+.header .nav-links .logout-btn {
+    margin-left: 20px; /* Add left margin for spacing */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Profile Link Styles */
+.profile-link {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.profile-icon {
+    margin-right: 5px; /* Spacing between icon and text */
+    font-size: 20px; /* Icon size */
+    color: white; /* Icon color */
+}
+
+/* Logout Button */
+.logout-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px; /* Same font size as links */
+}
+
+/* Hover Effects */
+.header .nav-links a:hover,
+.logout-btn:hover {
+    opacity: 0.8; /* Slightly transparent on hover */
+}
+
+
+.cart-link {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Space between nav items */
+  }
+  
+  .cart-icon-container {
+    position: relative; /* Positioning for the badge */
+  }
+  
+  .cart-icon {
+    font-size: 15px; /* Adjust size as needed */
+    margin-right: 15px; /* Space between icon and text */
+
+  }
+  
+  .cart-badge {
+    position: absolute;
+    top: -5px; /* Adjust position */
+    right: -0px; /* Adjust position */
+    background-color: red; /* Badge color */
+    color: white; /* Text color */
+    border-radius: 50%;
+    padding: 2px 6px; /* Adjust padding */
+    font-size: 12px; /* Font size */
+  }
+  
+  .cart-text {
+    font-size: 16px; /* Adjust text size as needed */
+  }
+  

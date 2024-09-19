@@ -1,0 +1,109 @@
+/* Cart Page Styling */
+.cart-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .cart-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .cart-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .cart-items {
+    flex: 0.65;
+  }
+  
+  .cart-summary {
+    flex: 0.3;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+  }
+  
+  .cart-item {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .cart-item-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
+  
+  .cart-item-info {
+    flex: 1;
+  }
+  
+  .cart-item-name {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .cart-item-price {
+    font-size: 16px;
+    color: #ff5722;
+    margin-bottom: 10px;
+  }
+  
+  .quantity-selector {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-selector label {
+    margin-right: 10px;
+  }
+  
+  .quantity-selector input {
+    width: 50px;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .remove-button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .remove-button:hover {
+    background-color: #ff3d3d;
+  }
+  
+  /* Cart Summary Styling */
+  .price-details p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .price-details h4 {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  
+  .checkout-button {
+    padding: 15px 30px;
+    background-color: #fb641b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  .checkout-button:hover {
+    background-color: #ff9f00;
+  }
+  

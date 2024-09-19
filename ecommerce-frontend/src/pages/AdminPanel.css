@@ -1,0 +1,55 @@
+.admin-panel {
+  display: flex;
+  background-color: #f5f5f5;
+}
+
+.admin-nav {
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.admin-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-list li {
+  margin: 15px 0;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+.admin-nav a:hover {
+  color: #007bff; /* Change this color as needed */
+}
+
+.admin-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #fff;
+}
+
+
+.icon {
+  margin-right: 8px; /* Space between icon and text */
+  vertical-align: middle; /* Align icon with text */
+  color: #333; /* Set default icon color */
+  font-size: 18px; /* Set icon size */
+}
+
+.nav-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,28 @@
+/* src/pages/AdminOrdersPage.css */
+.admin-orders-page {
+    padding: 20px;
+  }
+  
+  .orders-list {
+    margin-top: 20px;
+  }
+  
+  .order-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .delete-button {
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #ff0000;
+  }
+  

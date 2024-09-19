@@ -1,0 +1,15 @@
+/* Sellers.css */
+.sellers-page {
+  padding: 20px;
+}
+
+.sellers-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sellers-list li {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}

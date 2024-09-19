@@ -1,0 +1,46 @@
+/* styles.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .products-page {
+    width: 100%; /* Ensure the page takes the full width */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Add some padding */
+    background-color: #f8f8f8; /* Example background color */
+    width: 100%; /* Full width for the header */
+  }
+  
+  .products-section {
+    width: 100%; /* Ensure the section takes full width */
+    padding: 20px; /* Add padding to the section */
+  }
+  
+  .category-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Full width */
+  }
+  
+  .category-title {
+    text-align: center;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f8f8; /* Example background color */
+    width: 100%; /* Full width for the footer */
+  }
+  
