@@ -76,7 +76,6 @@ public class UserController {
         System.out.println(signUser.getPassword());
         System.out.println(userDto.getPassword());
 
- 
         if (!signUser.getPassword().equals(userDto.getPassword())) {
             // Return error response for wrong password
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password.");
@@ -102,11 +101,10 @@ public class UserController {
         return ResponseEntity.ok("User deleted: " + userDto.getName());
     }
 
-
-     //Get all users
+    //Get all users
     @GetMapping("/sellers")
     public ResponseEntity<List<UserDto>> getAllSellers() {
-        List<UserDto> users = userService.getAllUsers();
+        List<UserDto> users = userService.getSellers();
 
         return ResponseEntity.ok(users);
     }

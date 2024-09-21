@@ -1,5 +1,3 @@
-// src/pages/LoginPage.js
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import { signInUser } from '../services/api'; // Import the signInUser function
@@ -17,11 +15,24 @@ const LoginPage = ({ onLogin, onRegister }) => {
     
         try {
             const response = await signInUser({ email, password }); // Call your signInUser function
-            console.log(response.data);
-            
-            localStorage.setItem('currentUser', JSON.stringify(response.data)); // Save entire user object
-                        // Optionally, you can call onLogin if you have a callback for login state
-            navigate('/'); // Redirect to home
+            const user = response.data;
+            console.log(user);
+
+            // Check if the user is disabled
+            if (!user.enabled) {
+                navigate('/account-disabled'); // Redirect to account disabled page
+                return;
+            }
+
+            // Save entire user object in localStorage
+            localStorage.setItem('currentUser', JSON.stringify(user));
+
+            // Navigate based on user role
+            if (user.role === 'seller') {
+                navigate('/sellerPanel'); // Redirect to seller panel
+            } else {
+                navigate('/'); // Redirect to home
+            }
         } catch (err) {
             console.log(err);
             setError('Invalid email or password'); // Set error message

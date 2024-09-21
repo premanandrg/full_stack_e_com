@@ -1,0 +1,39 @@
+.account-disabled-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.warning-icon {
+    font-size: 3rem; /* Adjust the size as needed */
+    color: #dc3545; /* Red color for the warning icon */
+    margin-bottom: 20px; /* Space between icon and text */
+}
+
+.account-disabled-container h1 {
+    font-size: 2rem;
+    color: #dc3545; /* Red color for the error message */
+}
+
+.account-disabled-container p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+.back-to-login-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff; /* Blue color for the button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-to-login-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

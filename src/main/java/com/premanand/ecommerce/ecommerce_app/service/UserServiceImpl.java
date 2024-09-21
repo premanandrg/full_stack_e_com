@@ -60,4 +60,13 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFundException("Category not found! " + id.toString()));
         return UserMapper.mapToUserDto(user);
     }
+
+    @Override
+    public List<UserDto> getSellers() {
+        return userRepository.findAll().stream()
+                .filter(user -> "seller".equals(user.getRole())) // Filter by role
+                .map(UserMapper::mapToUserDto) // Map to UserDto
+                .collect(Collectors.toList());
+    }
+
 }

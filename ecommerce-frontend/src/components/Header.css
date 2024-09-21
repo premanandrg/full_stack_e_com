@@ -60,7 +60,6 @@
 .profile-icon {
     margin-right: 5px; /* Spacing between icon and text */
     font-size: 20px; /* Icon size */
-    color: white; /* Icon color */
 }
 
 /* Logout Button */
@@ -78,35 +77,33 @@
     opacity: 0.8; /* Slightly transparent on hover */
 }
 
-
+/* Cart Link Styles */
 .cart-link {
     display: flex;
     align-items: center;
     margin-left: 20px; /* Space between nav items */
-  }
-  
-  .cart-icon-container {
+}
+
+.cart-icon-container {
     position: relative; /* Positioning for the badge */
-  }
-  
-  .cart-icon {
+}
+
+.cart-icon {
     font-size: 15px; /* Adjust size as needed */
     margin-right: 15px; /* Space between icon and text */
+}
 
-  }
-  
-  .cart-badge {
+.cart-badge {
     position: absolute;
     top: -5px; /* Adjust position */
-    right: -0px; /* Adjust position */
+    right: -10px; /* Adjust position */
     background-color: red; /* Badge color */
     color: white; /* Text color */
     border-radius: 50%;
     padding: 2px 6px; /* Adjust padding */
     font-size: 12px; /* Font size */
-  }
-  
-  .cart-text {
+}
+
+.cart-text {
     font-size: 16px; /* Adjust text size as needed */
-  }
-  
+}

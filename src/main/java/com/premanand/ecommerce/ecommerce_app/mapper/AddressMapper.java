@@ -8,22 +8,24 @@ public class AddressMapper {
     public static Address mapToAddress(AddressDto addressDto) {
         return new Address(
                 addressDto.getId(),
-                addressDto.getEmail(),
+                addressDto.getPhoneNumber(),
                 addressDto.getName(),
                 addressDto.getStreet(),
                 addressDto.getCity(),
-                addressDto.getPincode()
+                addressDto.getPincode(), 
+                addressDto.getUserId()
         );
     }
 
     public static AddressDto mapToAddressDto(Address address) {
         return new AddressDto(
                 address.getId(),
-                address.getEmail(),
+                address.getPhoneNumber(),
                 address.getName(),
                 address.getStreet(),
                 address.getCity(),
-                address.getPincode()
+                address.getPincode(),
+                address.getUserId()
         );
     }
 

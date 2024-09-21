@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Base URL for the API
-const API_URL = 'http://localhost:8080';
+const API_URL = process.env.REACT_APP_API_URL || 'https://localhost:8443';
 
 // Products endpoints
 export const getProducts = () => axios.get(`${API_URL}/products`);
@@ -15,7 +15,7 @@ export const getProductsByCategoryId = (categoryId) => axios.get(`${API_URL}/pro
 export const addAddress = (address) => axios.post(`${API_URL}/address`, address);
 export const getAllAddresses = () => axios.get(`${API_URL}/address`);
 export const getAddressById = (id) => axios.get(`${API_URL}/address/${id}`);
-export const getAddressByEmail = (email) => axios.get(`${API_URL}/address/email/${email}`);
+export const getAddressByUserId = (userId) => axios.get(`${API_URL}/address/user/${userId}`); // This is correct
 export const updateAddress = (address) => axios.put(`${API_URL}/address`, address);
 export const deleteAddress = (id) => axios.delete(`${API_URL}/address/${id}`);
 
@@ -44,6 +44,7 @@ export const getUserByEmail = (email) => axios.get(`${API_URL}/users/${email}`);
 export const getAllUsers = () => axios.get(`${API_URL}/users`);
 export const signInUser = (userDto) => axios.post(`${API_URL}/users/signin`, userDto);
 export const deleteUserById = (id) => axios.delete(`${API_URL}/users/${id}`);
+
 
 // Payment endpoints
 export const verifyPayment = (paymentDetails) => axios.post(`${API_URL}/payment/verify`, paymentDetails);

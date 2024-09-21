@@ -10,6 +10,6 @@ import com.premanand.ecommerce.ecommerce_app.entity.Address;
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Long> {
 
-    List<Address> findByEmail(String email);
+    List<Address> findByUserId(Long userId);
 
 }

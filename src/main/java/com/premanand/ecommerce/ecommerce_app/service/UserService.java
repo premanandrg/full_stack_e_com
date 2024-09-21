@@ -20,6 +20,8 @@ public interface UserService {
 
     public List<UserDto> getAllUsers();
 
+    public List<UserDto> getSellers();
+
     public void deleteUser(Long id);
 
 }

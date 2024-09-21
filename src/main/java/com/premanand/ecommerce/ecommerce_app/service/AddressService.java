@@ -20,5 +20,5 @@ public interface AddressService {
 
     public List<Address> getAllAddresses();
 
-    public List<Address> getAddressByUserEmail(String email);
+    public List<Address> getAddressByUserId(Long userId);
 }

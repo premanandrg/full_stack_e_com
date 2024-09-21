@@ -116,3 +116,45 @@
     font-size: 18px; /* Font size for the text */
     font-weight: bold; /* Bold text */
 }
+
+.profile-info input {
+    margin: 5px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.update-btn, .edit-btn {
+    margin-top: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.logout-btn {
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.list-tile {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: 1px solid #ccc; /* Add border for visual consistency */
+    border-radius: 4px; /* Rounded corners */
+    margin: 10px 0; /* Space between tiles */
+}
+
+.list-tile:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+}
+
+.list-icon {
+    margin-right: 10px;
+}
+
+.list-text {
+    font-size: 16px;
+}

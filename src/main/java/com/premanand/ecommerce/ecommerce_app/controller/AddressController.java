@@ -55,13 +55,11 @@ public class AddressController {
 
     }
 
-    //Build REST api to GET address by id
-    @GetMapping("/email/{email}")
-    public ResponseEntity<List<Address>> getAddress(@PathVariable("email") String email) {
-        List<Address> addresses = addressService.getAddressByUserEmail(email);
-
+    // Build REST API to GET address by user ID
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Address>> getAddressByUserId(@PathVariable("userId") Long userId) {
+        List<Address> addresses = addressService.getAddressByUserId(userId);
         return ResponseEntity.ok(addresses);
-
     }
 
     //Build REST api to update address

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FaUserCircle } from 'react-icons/fa'; // Importing the user icon
 import { AiOutlineShoppingCart } from 'react-icons/ai'; // Importing the cart icon
+import { FaUserCircle } from 'react-icons/fa'; // Importing the user icon
 import { Link, useNavigate } from 'react-router-dom';
 import { getCartByUserId } from '../services/api'; // Import the API service
 import './Header.css';
@@ -10,6 +10,7 @@ const Header = () => {
   const navigate = useNavigate();
   const currentUser = JSON.parse(localStorage.getItem('currentUser')); // Get user info from local storage
   const userId = currentUser ? currentUser.id : null; // Get userId from local storage
+  const userRole = currentUser ? currentUser.role : null; // Get user role from local storage
 
   useEffect(() => {
     const fetchCartItemCount = async () => {
@@ -46,9 +47,14 @@ const Header = () => {
       <div className="nav-links">
         {currentUser ? (
           <>
-            <Link to="/profile" className="profile-link">
-              <FaUserCircle className="profile-icon" /> Profile
-            </Link>
+            {userRole === 'seller' ? (
+              <Link to="/sellerPanel" className="profile-link">
+                <FaUserCircle className="profile-icon" /> Seller Panel</Link>
+            ) : (
+              <Link to="/profile" className="profile-link">
+                <FaUserCircle className="profile-icon" /> Profile
+              </Link>
+            )}
             <button onClick={handleLogout} className="logout-btn">Logout</button>
           </>
         ) : (
@@ -61,7 +67,7 @@ const Header = () => {
           </div>
           <span className="cart-text">Cart</span>
         </Link>
-        <Link to="/admin">Admin</Link>
+        {userRole === 'admin' && <Link to="/admin">Admin</Link>} {/* Only show Admin link if user is an admin */}
       </div>
     </header>
   );

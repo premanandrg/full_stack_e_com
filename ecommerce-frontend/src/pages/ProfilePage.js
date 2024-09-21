@@ -1,13 +1,17 @@
-import React from 'react';
-import { FaShoppingCart, FaUserCircle } from 'react-icons/fa'; // Importing the profile and cart icons
+import React, { useState } from 'react';
+import { FaMapMarkedAlt, FaShoppingCart, FaUserCircle } from 'react-icons/fa'; // Importing icons
 import { useNavigate } from 'react-router-dom';
 import './ProfilePage.css'; // Import the CSS file for styling
 
 import Footer from '../components/Footer';
+import { updateUser } from '../services/api';
 
 const ProfilePage = () => {
     const navigate = useNavigate();
     const currentUser = JSON.parse(localStorage.getItem('currentUser')); // Get user info from local storage
+    const [name, setName] = useState(currentUser.name);
+    const [email, setEmail] = useState(currentUser.email);
+    const [isEditing, setIsEditing] = useState(false);
 
     const handleLogout = () => {
         localStorage.removeItem('currentUser'); // Remove user info from local storage
@@ -22,6 +26,22 @@ const ProfilePage = () => {
         navigate('/orders'); // Navigate to the My Orders page
     };
 
+    const handleNavigateToAddresses = () => {
+        navigate('/address'); // Navigate to the My Addresses page
+    };
+
+    const handleEditToggle = () => {
+        setIsEditing(!isEditing); // Toggle editing mode
+    };
+
+    const handleUpdateProfile = async () => {
+        // Update the user data logic (e.g., API call)
+        const updatedUser = { ...currentUser, name, email };
+        await updateUser(updatedUser);
+        localStorage.setItem('currentUser', JSON.stringify(updatedUser)); // Save updated user info
+        setIsEditing(false); // Exit editing mode
+    };
+
     return (
         <div className="profile-page">
             <header className="page-header">
@@ -33,18 +53,45 @@ const ProfilePage = () => {
                 </div>
                 <div className="profile-info">
                     <h2 className="profile-title">{currentUser.name}</h2> {/* Display user name */}
-                    <p><strong>Email:</strong> {currentUser.email}</p>
+                    {isEditing ? (
+                        <div>
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Update Name"
+                            />
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Update Email"
+                            />
+                            <button onClick={handleUpdateProfile} className="update-btn">Update</button>
+                        </div>
+                    ) : (
+                        <div>
+                            <p><strong>Email:</strong> {currentUser.email}</p>
+                            <button onClick={handleEditToggle} className="edit-btn">Edit</button>
+                        </div>
+                    )}
                 </div>
                 <button onClick={handleLogout} className="logout-btn">Logout</button>
             </div>
 
             {/* My Orders ListTile */}
-            <div className="my-orders-tile" onClick={handleNavigateToOrders}>
-                <FaShoppingCart className="my-orders-icon" />
-                <span className="my-orders-text">My Orders</span>
+            <div className="list-tile" onClick={handleNavigateToOrders}>
+                <FaShoppingCart className="list-icon" />
+                <span className="list-text">My Orders</span>
             </div>
 
-            <Footer/>
+            {/* My Addresses ListTile */}
+            <div className="list-tile" onClick={handleNavigateToAddresses}>
+                <FaMapMarkedAlt className="list-icon" />
+                <span className="list-text">My Addresses</span>
+            </div>
+
+            <Footer />
         </div>
     );
 };

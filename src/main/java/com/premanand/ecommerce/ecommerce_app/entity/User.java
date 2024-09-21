@@ -28,6 +28,10 @@ public class User {
     private String name;
 
     private String role; // user, seller, admin
+    
+
+    @Column(nullable = false)
+    private boolean enabled = true; // New field to enable or disable seller
 
     // @OneToOne(mappedBy = "user")
     // @JsonBackReference

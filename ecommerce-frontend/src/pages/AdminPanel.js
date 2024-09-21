@@ -10,6 +10,8 @@ import EditProduct from './EditProduct';
 import OrdersPage from './OrdersPage';
 import SellersPage from './SellersPage'; // Import the Sellers page
 
+import AddSellerPage from './AddSellerPage';
+
 const AdminPanel = () => {
   return (
     <div>
@@ -43,6 +45,11 @@ const AdminPanel = () => {
                 <FiUserCheck className="icon" /> Sellers {/* Added sellers link */}
               </Link>
             </li>
+            <li>
+            <Link to="/admin/add-seller">
+                <FiUserCheck className="icon" /> Add Seller
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -54,6 +61,7 @@ const AdminPanel = () => {
             <Route path="products" element={<AdminProducts />} />
             <Route path="edit-product/:productId" element={<EditProduct />} />
             <Route path="sellers" element={<SellersPage />} /> {/* Added sellers route */}
+            <Route path="add-seller" element={<AddSellerPage />} />
           </Routes>
         </div>
       </div>

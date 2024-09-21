@@ -51,10 +51,9 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public List<Address> getAddressByUserEmail(String email) {
-
-        return addressRepository.findByEmail(email);
-
+    public List<Address> getAddressByUserId(Long userId) {
+         List<Address> addresses = addressRepository.findByUserId(userId);
+        return addresses; 
     }
-
+ 
 }

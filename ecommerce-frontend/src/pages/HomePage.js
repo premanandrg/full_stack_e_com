@@ -11,15 +11,10 @@ function HomePage() {
   return (
     <div className="homepage">
       <Header /> {/* Render the Header component */}
-
       <CategoryList />
       <ProductsList />
-
       <TopDeals />
-
-
       <Footer />
-      
     </div>
   );
 }

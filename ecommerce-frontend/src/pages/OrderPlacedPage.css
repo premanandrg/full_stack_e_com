@@ -1,0 +1,40 @@
+.order-placed-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    padding: 40px;
+    background-color: #f8f8f8;
+    min-height: 100vh; /* Full height */
+    text-align: center; /* Center text */
+  }
+  
+  .icon-container {
+    font-size: 60px;
+    color: #4CAF50; /* Green color for success */
+    margin-bottom: 20px;
+  }
+  
+  .success-message {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .order-id {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .view-orders-link {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .view-orders-link:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  

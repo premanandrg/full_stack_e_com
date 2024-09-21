@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { addProductToCart, createOrder, getCartByUserId, getProductById, removeProductFromCart } from '../services/api';
+import { addProductToCart, getCartByUserId, getProductById, removeProductFromCart } from '../services/api';
 import './CartPage.css'; // Import the custom CSS
 
 import Footer from '../components/Footer';
@@ -11,7 +11,6 @@ const CartPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
 
-  // Check for user info in local storage
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   const userId = currentUser ? currentUser.id : null; // Get userId from local storage
 
@@ -62,6 +61,7 @@ const CartPage = () => {
   };
 
   const handleQuantityChange = async (productId, newQuantity) => {
+    if (newQuantity < 1) return; // Prevent setting quantity to less than 1
     try {
       await addProductToCart(userId, productId, newQuantity);
       const updatedCartItems = cartItems.map(item => 
@@ -74,33 +74,20 @@ const CartPage = () => {
     }
   };
 
-  const handleCheckout = async () => {
-    try {
-      // Generate a unique order ID using date and time
-      const orderId = `ORDER-${new Date().getTime()}`;
-
-      // Create the order data
-      const orderData = {
-        orderId,  // Set the generated orderId
-        userId,
-        totalPrice,
-        items: cartItems.map(item => ({
-          productId: item.product.id,
-          quantity: item.quantity,
-          price: item.product.price, // Include price if needed
-        })),
-      };
-
-      await createOrder(orderData); // API call to create order
-
-      // Navigate to the orders page after successful checkout
-      navigate('/orders');
-    } catch (error) {
-      console.error('Error creating order:', error);
-    }
+  const handleCheckout = () => {
+    // Pass the cart data and totalPrice to the address selection page
+    const orderData = {
+      userId,
+      totalPrice,
+      items: cartItems.map(item => ({
+        productId: item.product.id,
+        quantity: item.quantity,
+        price: item.product.price,
+      })),
+    };
+    navigate('/selectAddress', { state: { orderData } });
   };
 
-  // Check if user is not logged in
   if (!currentUser) {
     return (
       <div className="cart-page">

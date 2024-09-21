@@ -1,45 +1,43 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { saveUser } from '../services/api';
-import './RegisterPage.css';
+import { saveUser } from '../services/api'; // Import the correct API service
+import './AddSellerPage.css'; // Adjust path as needed
 
-const RegisterPage = () => {
+const AddSellerPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-  
-    // Prepare user data as a JSON object
-    const userData = {
+
+    // Prepare seller data as a JSON object including role
+    const sellerData = {
       name,
       email,
-      password
+      password,
+      role: 'seller' // Set role to 'seller'
     };
-  
+
     try {
-      // Send data as JSON
-     await saveUser(userData);
-  
-      
-      navigate('/login');
+      // Send data as JSON to the API endpoint for creating a seller
+      await saveUser(sellerData);
+      navigate('/admin/sellers'); // Redirect to the sellers page
     } catch (err) {
-      setError('Registration failed. Please try again.');
+      setError('Failed to add seller. Please try again.');
     }
   };
-  
+
   return (
-    <div className="register-container">
+    <div className="add-seller-container">
       <div className="brand-name">
-        <h1>GoCart</h1>
+        <h1>GoCart Admin</h1>
       </div>
-      <form onSubmit={handleSubmit} className="register-form">
-        <h2>Register</h2>
+      <form onSubmit={handleSubmit} className="add-seller-form">
+        <h2>Add New Seller</h2>
         {error && <p className="error">{error}</p>}
         <div className="form-group">
           <label>Name</label>
@@ -69,10 +67,10 @@ const RegisterPage = () => {
           />
         </div>
 
-        <button type="submit" className="register-button">Register</button>
+        <button type="submit" className="add-seller-button">Add Seller</button>
       </form>
     </div>
   );
 };
 
-export default RegisterPage;
+export default AddSellerPage;

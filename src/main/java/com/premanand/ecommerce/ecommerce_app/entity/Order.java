@@ -27,4 +27,6 @@ public class Order {
     private List<OrderItem> items;
 
     private String status;
+
+    private Integer totalPrice;
 }

@@ -18,5 +18,5 @@ public class UserDto {
     private String password;
     private String name;
     private String role; // user, seller, admin
-
+    private boolean  enabled;
 }
