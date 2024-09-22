@@ -3,8 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { addProductToCart, getProductById } from '../services/api';
 import './ProductDetails.css'; // Import the custom CSS
 
-import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -45,7 +45,7 @@ const ProductDetails = () => {
     }
   };
 
-  const handleBuyNow = () => {
+  const handleBuyNow = async () => {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const userId = currentUser ? currentUser.id : null; // Get userId from local storage
 
@@ -54,7 +54,19 @@ const ProductDetails = () => {
       return;
     }
 
-    navigate(`/checkout?productId=${productId}`);
+    // Prepare order data
+    const orderData = {
+      userId,
+      totalPrice: product.price,
+      items: [{
+        productId: product.id,
+        quantity: 1,
+        price: product.price,
+      }],
+    };
+
+    // Navigate to the checkout page with order data
+    navigate('/selectAddress', { state: { orderData } });
   };
 
   if (isLoading) {

@@ -1,0 +1,67 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: static;
+    float: none;
+    background-color: #2874f0; /* Flipkart-like blue */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .app-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navbar-center {
+    flex-grow: 1;
+    margin: 0 20px;
+  }
+  
+  .search-bar {
+    padding: 8px;
+    width: 90%;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+  }
+  
+  .search-bar:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  
+  .navbar-link {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  
+  .navbar-link:hover {
+
+    scale: 1.1;
+  }
+  
+  .logout-btn {
+    background-color: #ff5f56; /* Red for logout */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-btn:hover {
+    background-color: #ff4c43;
+  }
+  

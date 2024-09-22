@@ -19,7 +19,7 @@ const CartPage = () => {
       if (!userId) {
         return; // If not logged in, skip fetching cart
       }
-      
+
       try {
         const cartResponse = await getCartByUserId(userId);
         const cartData = cartResponse.data;
@@ -64,7 +64,7 @@ const CartPage = () => {
     if (newQuantity < 1) return; // Prevent setting quantity to less than 1
     try {
       await addProductToCart(userId, productId, newQuantity);
-      const updatedCartItems = cartItems.map(item => 
+      const updatedCartItems = cartItems.map(item =>
         item.product.id === productId ? { ...item, quantity: newQuantity } : item
       );
       setCartItems(updatedCartItems);
@@ -100,56 +100,60 @@ const CartPage = () => {
   }
 
   return (
-    <div className="cart-page">
+    <div>
       <Header />
-      <h2 className="cart-title">Shopping Cart</h2>
+      <div className="cart-page">
 
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty. <a href="/">Start shopping</a></p>
-      ) : (
-        <div className="cart-container">
-          <div className="cart-items">
-            {cartItems.map((item) => (
-              <div key={item.product.id} className="cart-item">
-                <img src={item.product.image} alt={item.product.name} className="cart-item-image" />
-                <div className="cart-item-info">
-                  <h3 className="cart-item-name">{item.product.name}</h3>
-                  <p className="cart-item-price">₹{item.product.price}</p>
+        <h2 className="cart-title">Shopping Cart</h2>
 
-                  <div className="quantity-selector">
-                    <label>Quantity:</label>
-                    <input
-                      type="number"
-                      min="1"
-                      value={item.quantity}
-                      onChange={(e) => handleQuantityChange(item.product.id, e.target.value)}
-                    />
+        {cartItems.length === 0 ? (
+          <p>Your cart is empty. <a href="/">Start shopping</a></p>
+        ) : (
+          <div className="cart-container">
+            <div className="cart-items">
+              {cartItems.map((item) => (
+                <div key={item.product.id} className="cart-item">
+                  <img src={item.product.image} alt={item.product.name} className="cart-item-image" />
+                  <div className="cart-item-info">
+                    <h3 className="cart-item-name">{item.product.name}</h3>
+                    <p className="cart-item-price">₹{item.product.price}</p>
+
+                    <div className="quantity-selector">
+                      <label>Quantity:</label>
+                      <input
+                        type="number"
+                        min="1"
+                        value={item.quantity}
+                        onChange={(e) => handleQuantityChange(item.product.id, e.target.value)}
+                      />
+                    </div>
+
+                    <button className="remove-button" onClick={() => handleRemove(item.product.id)}>
+                      Remove
+                    </button>
                   </div>
-
-                  <button className="remove-button" onClick={() => handleRemove(item.product.id)}>
-                    Remove
-                  </button>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="cart-summary">
-            <h3>Price Details</h3>
-            <div className="price-details">
-              <p>Total Price: ₹{totalPrice}</p>
-              <p>Discount: ₹100</p> {/* Example discount */}
-              <p>Delivery Charges: ₹50</p>
-              <h4>Total Amount: ₹{totalPrice - 100 + 50}</h4>
+              ))}
             </div>
-            <button className="checkout-button" onClick={handleCheckout}>
-              Proceed to Checkout
-            </button>
+
+            <div className="cart-summary">
+              <h3>Price Details</h3>
+              <div className="price-details">
+                <p>Total Price: ₹{totalPrice}</p>
+                <p>Discount: ₹100</p> {/* Example discount */}
+                <p>Delivery Charges: ₹50</p>
+                <h4>Total Amount: ₹{totalPrice - 100 + 50}</h4>
+              </div>
+              <button className="checkout-button" onClick={handleCheckout}>
+                Proceed to Checkout
+              </button>
+            </div>
           </div>
-        </div>
-      )}
-      <Footer />
+        )}
+        <Footer />
+      </div>
     </div>
+
   );
 };
 

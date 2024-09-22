@@ -52,8 +52,7 @@ const Header = () => {
                 <FaUserCircle className="profile-icon" /> Seller Panel</Link>
             ) : (
               <Link to="/profile" className="profile-link">
-                <FaUserCircle className="profile-icon" /> Profile
-              </Link>
+                <FaUserCircle className="profile-icon" /> Profile</Link>
             )}
             <button onClick={handleLogout} className="logout-btn">Logout</button>
           </>

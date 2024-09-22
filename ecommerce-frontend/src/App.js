@@ -14,8 +14,8 @@ import CustomerOrders from './pages/CustomerOrders'; // Import CustomerOrders co
 import Customers from './pages/Customers';
 import EditAddress from './pages/EditAddress';
 import EditProduct from './pages/EditProduct';
-import Home from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import Home from './pages/MainPage';
 import OrderDetailsPage from './pages/OrderDetailsPage';
 import OrderPlacedPage from './pages/OrderPlacedPage'; // Import OrderPlacedPage component
 import OrdersPage from './pages/OrdersPage';

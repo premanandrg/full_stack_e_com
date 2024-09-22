@@ -2,11 +2,14 @@
 .header {
     background-color: #f07f28;
     color: white;
-    padding: 10px 20px;
-    display: flex;
-    max-width: 100%;
-    align-items: center;
-    justify-content: space-between;
+    padding: 10px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: fixed !important;
+    width: 100% !important;
+    top: 0 !important;
+    z-index: 100 !important; /* Ensure it's on top */
 }
 
 .header .logo {
@@ -15,9 +18,9 @@
 }
 
 .logo-link {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit the text color */
-    font-weight: bold; /* Optional: make it bold */
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
 }
 
 /* Search Bar Styles */
@@ -31,7 +34,7 @@
     width: 100%;
     padding: 10px;
     border: none;
-    border-radius: 2px;
+    border-radius: 4px; /* Increased for smoother look */
     outline: none;
     font-size: 14px;
 }
@@ -44,7 +47,7 @@
 
 .header .nav-links a,
 .header .nav-links .logout-btn {
-    margin-left: 20px; /* Add left margin for spacing */
+    margin-left: 20px;
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -58,8 +61,8 @@
 }
 
 .profile-icon {
-    margin-right: 5px; /* Spacing between icon and text */
-    font-size: 20px; /* Icon size */
+    margin-right: 5px;
+    font-size: 20px;
 }
 
 /* Logout Button */
@@ -68,42 +71,44 @@
     border: none;
     color: white;
     cursor: pointer;
-    font-size: 16px; /* Same font size as links */
+    font-size: 16px;
+    padding-left: 10px;
+    margin-top: 0; /* Adjusted alignment */
 }
 
 /* Hover Effects */
 .header .nav-links a:hover,
 .logout-btn:hover {
-    opacity: 0.8; /* Slightly transparent on hover */
+    opacity: 0.8;
 }
 
 /* Cart Link Styles */
 .cart-link {
     display: flex;
     align-items: center;
-    margin-left: 20px; /* Space between nav items */
+    margin-left: 20px;
 }
 
 .cart-icon-container {
-    position: relative; /* Positioning for the badge */
+    position: relative;
 }
 
 .cart-icon {
-    font-size: 15px; /* Adjust size as needed */
-    margin-right: 15px; /* Space between icon and text */
+    font-size: 20px; /* Increased for better visibility */
+    margin-right: 10px;
 }
 
 .cart-badge {
     position: absolute;
-    top: -5px; /* Adjust position */
-    right: -10px; /* Adjust position */
-    background-color: red; /* Badge color */
-    color: white; /* Text color */
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
     border-radius: 50%;
-    padding: 2px 6px; /* Adjust padding */
-    font-size: 12px; /* Font size */
+    padding: 2px 6px;
+    font-size: 12px;
 }
 
 .cart-text {
-    font-size: 16px; /* Adjust text size as needed */
+    font-size: 16px;
 }

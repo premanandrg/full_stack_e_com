@@ -56,7 +56,7 @@ const AddressPage = () => {
                                 <div className="address-actions">
                                     <button onClick={() => navigate(`/edit-address/${address.id}`)} className="edit-button">Edit</button>
                                     <button onClick={() => handleDeleteAddress(address.id)} className="delete-button">Delete</button>
-                                    <button onClick={() => navigate(`/select-address/${address.id}`)} className="select-button">Select</button>
+                                    
                                 </div>
                             </li>
                         ))
