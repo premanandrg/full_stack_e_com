@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Navbar';
+import Footer from '../components/AdminFooter';
+import AdminHeader from '../components/AdminHeader'; // Import AdminHeader
+import Navbar from '../components/Navbar'; // Import Navbar
+import PageTitle from '../components/PageTitle';
 import { addCategory, addProduct, getAllCategories } from '../services/api';
 import './AddProduct.css'; // Import your custom styles
 
@@ -77,11 +79,18 @@ const AddProduct = () => {
     }
   };
 
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  const userRole = currentUser ? currentUser.role : null;
+
   return (
     <div>
-      <Header />
+      {userRole === null || userRole === 'seller' ? (
+        <AdminHeader />
+      ) : (
+        <Navbar />
+      )}
       <div className="add-product-container">
-        <h2 className="add-product-title">Add New Product</h2>
+        <PageTitle title='Add Product'/>
         <form className="add-product-form" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -114,7 +123,6 @@ const AddProduct = () => {
             onChange={handleProductChange}
             required
           />
-
           <select name="categoryId" value={product.categoryId} onChange={handleCategoryChange} required>
             <option value="">Select Category</option>
             {categories.map((category) => (
@@ -123,7 +131,6 @@ const AddProduct = () => {
               </option>
             ))}
           </select>
-
           <form onSubmit={handleAddCategory}>
             <input
               type="text"
@@ -142,7 +149,6 @@ const AddProduct = () => {
             />
             <button type="submit">Add Category</button>
           </form>
-
           <button type="submit" className="submit-button">Add Product</button>
         </form>
       </div>

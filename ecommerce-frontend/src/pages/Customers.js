@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/AdminFooter';
 import AdminHeader from '../components/AdminHeader';
-import Footer from '../components/Footer';
 import { deleteUserById, getAllUsers, updateUser } from '../services/api'; // Import deleteUserById
 import './Customers.css'; // Import custom styles
+
+import PageTitle from '../components/PageTitle';
 
 const Customers = () => {
   const [customers, setCustomers] = useState([]);
@@ -59,7 +61,8 @@ const Customers = () => {
     <div className="customers-page">
       <AdminHeader />
       <div className="customers-container">
-        <h2 className="page-title">Customers</h2>
+       
+        <PageTitle title='Customers'/>
 
         {customers.length === 0 ? (
           <p className="no-customers">No customers found.</p>

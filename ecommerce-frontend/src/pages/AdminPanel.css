@@ -4,15 +4,17 @@
 }
 
 .admin-nav {
-  width: 250px;
+  width: 100%;
   background-color: #fff;
   padding: 20px;
-  border-right: 1px solid #e0e0e0;
+ 
+  
 }
 
 .admin-title {
   font-size: 24px;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .nav-list {
@@ -22,34 +24,39 @@
 
 .nav-list li {
   margin: 15px 0;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.nav-list li:hover {
+  background-color: #e9ecef; /* Subtle hover effect */
+  transform: translateX(5px); /* Slight move on hover */
 }
 
 .nav-list li a {
   text-decoration: none;
   color: #333;
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  transition: color 0.3s; /* Smooth color transition */
 }
 
 .admin-nav a:hover {
-  color: #007bff; /* Change this color as needed */
+  color: #007bff; /* Change color on hover */
 }
 
 .admin-content {
   flex-grow: 1;
-  padding: 20px;
+  
   background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 
 .icon {
-  margin-right: 8px; /* Space between icon and text */
-  vertical-align: middle; /* Align icon with text */
-  color: #333; /* Set default icon color */
-  font-size: 18px; /* Set icon size */
-}
-
-.nav-list li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  margin-right: 10px; /* Adjust spacing */
+  color: #007bff; /* Set icon color */
+  font-size: 22px; /* Increase icon size */
 }

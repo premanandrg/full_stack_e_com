@@ -1,0 +1,25 @@
+/* Footer Styles */
+.admin-footer {
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Red background for other roles */
+.red-footer {
+    background-color: rgba(255, 0, 0, 0.661); /* Same red color */
+}
+
+/* Blue background for seller */
+.blue-footer {
+    background-color: rgba(0, 0, 255, 0.661); /* Blue color for seller */
+}
+
+.admin-footer p {
+    margin: 0;
+    font-size: 14px;
+}

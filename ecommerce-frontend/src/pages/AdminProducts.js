@@ -4,6 +4,7 @@ import { deleteProduct, getProducts } from '../services/api'; // Adjust the impo
 import './AdminProducts.css'; // Import your custom styles
 
 import AdminHeader from '../components/AdminHeader';
+import PageTitle from '../components/PageTitle';
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
@@ -22,42 +23,46 @@ const AdminProducts = () => {
   };
 
   return (
-    <div className="admin-products-container">
-      <AdminHeader />
-      <h2 className="admin-products-title">Manage Products</h2>
-      <table className="admin-products-table">
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Product Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product) => (
-            <tr key={product.id}>
-              <td>
-                <img 
-                  src={product.image || 'default-image-url.jpg'} 
-                  alt={product.name}
-                  className="product-image"
-                  style={{ width: '50px', height: '50px', objectFit: 'cover' }} 
-                />
-              </td>
-              <td>{product.name}</td>
-              <td>{product.description}</td>
-              <td>₹{product.price}</td>
-              <td>
-                <Link to={`/admin/edit-product/${product.id}`} className="edit-button">Edit</Link>
-                <button onClick={() => handleDelete(product.id)} className="delete-button">Delete</button>
-              </td>
+    <div>
+      <AdminHeader />  <div className="admin-products-container">
+
+
+        <PageTitle title='Manage Products' />
+        <table className="admin-products-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Product Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {products.map((product) => (
+              <tr key={product.id}>
+                <td>
+                  <img
+                    src={product.image || 'default-image-url.jpg'}
+                    alt={product.name}
+                    className="product-image"
+                    style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                  />
+                </td>
+                <td>{product.name}</td>
+                <td>{product.description}</td>
+                <td>₹{product.price}</td>
+                <td>
+                  <Link to={`/admin/edit-product/${product.id}`} className="edit-button">Edit</Link>
+                  <button onClick={() => handleDelete(product.id)} className="delete-button">Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
+
   );
 };
 

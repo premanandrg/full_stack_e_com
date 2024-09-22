@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { addProductToCart, getCartByUserId, getProductById, removeProductFromCart } from '../services/api';
 import './CartPage.css'; // Import the custom CSS
 
+import { AiOutlineShoppingCart } from 'react-icons/ai'; // Importing an icon
 import Footer from '../components/Footer';
 import Header from '../components/Navbar';
-
 import PageTitle from '../components/PageTitle';
 
 const CartPage = () => {
@@ -14,23 +14,19 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  const userId = currentUser ? currentUser.id : null; // Get userId from local storage
+  const userId = currentUser ? currentUser.id : null;
 
   useEffect(() => {
     const fetchCart = async () => {
-      if (!userId) {
-        return; // If not logged in, skip fetching cart
-      }
+      if (!userId) return;
 
       try {
         const cartResponse = await getCartByUserId(userId);
         const cartData = cartResponse.data;
 
-        // Fetch product details for each item in the cart
         const productRequests = cartData.items.map(item => getProductById(item.productId));
         const productResponses = await Promise.all(productRequests);
 
-        // Combine cart items with product details
         const combinedItems = cartData.items.map((cartItem, index) => ({
           ...cartItem,
           product: productResponses[index].data,
@@ -63,7 +59,7 @@ const CartPage = () => {
   };
 
   const handleQuantityChange = async (productId, newQuantity) => {
-    if (newQuantity < 1) return; // Prevent setting quantity to less than 1
+    if (newQuantity < 1) return;
     try {
       await addProductToCart(userId, productId, newQuantity);
       const updatedCartItems = cartItems.map(item =>
@@ -77,8 +73,7 @@ const CartPage = () => {
   };
 
   const handleCheckout = () => {
-    // Pass the cart data and totalPrice to the address selection page
-    const orderData = {
+     const orderData = {
       userId,
       totalPrice,
       items: cartItems.map(item => ({
@@ -105,11 +100,13 @@ const CartPage = () => {
     <div>
       <Header />
       <div className="cart-page">
-
-      <PageTitle title="Shopping Cart"/>
-
+        <PageTitle title="Shopping Cart" />
+        
         {cartItems.length === 0 ? (
-          <p>Your cart is empty. <a href="/">Start shopping</a></p>
+           <div className="empty-cart">
+           <AiOutlineShoppingCart size={100} className="empty-cart-icon" />
+           <p>Your cart is empty. <a href="/">Start shopping</a></p>
+         </div>
         ) : (
           <div className="cart-container">
             <div className="cart-items">
@@ -119,7 +116,6 @@ const CartPage = () => {
                   <div className="cart-item-info">
                     <h3 className="cart-item-name">{item.product.name}</h3>
                     <p className="cart-item-price">₹{item.product.price}</p>
-
                     <div className="quantity-selector">
                       <label>Quantity:</label>
                       <input
@@ -127,9 +123,9 @@ const CartPage = () => {
                         min="1"
                         value={item.quantity}
                         onChange={(e) => handleQuantityChange(item.product.id, e.target.value)}
+                        className="quantity-input"
                       />
                     </div>
-
                     <button className="remove-button" onClick={() => handleRemove(item.product.id)}>
                       Remove
                     </button>
@@ -139,23 +135,31 @@ const CartPage = () => {
             </div>
 
             <div className="cart-summary">
-              <h3>Price Details</h3>
-              <div className="price-details">
-                <p>Total Price: ₹{totalPrice}</p>
-                <p>Discount: ₹100</p> {/* Example discount */}
-                <p>Delivery Charges: ₹50</p>
-                <h4>Total Amount: ₹{totalPrice - 100 + 50}</h4>
-              </div>
-              <button className="checkout-button" onClick={handleCheckout}>
-                Proceed to Checkout
-              </button>
-            </div>
+  <h3>Price Details</h3>
+  <div className="price-details">
+    <div className="price-item">
+      <span>Subtotal ({cartItems.length} items):</span>
+      <span>₹{totalPrice}</span>
+    </div>
+    <div className="price-item">
+      <span>Shipping:</span>
+      <span>Free</span>
+    </div>
+    <div className="price-item total">
+      <span>Total Price:</span>
+      <span>₹{totalPrice}</span>
+    </div>
+  </div>
+  <button className="checkout-button" onClick={handleCheckout}>
+    Proceed to Checkout
+  </button>
+</div>
+
           </div>
         )}
         <Footer />
       </div>
     </div>
-
   );
 };
 

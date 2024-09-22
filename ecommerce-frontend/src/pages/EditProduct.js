@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Footer from '../components/Footer';
-import Header from '../components/Navbar';
+import Footer from '../components/AdminFooter';
+import Header from '../components/AdminHeader';
+import PageTitle from '../components/PageTitle';
 import { getAllCategories, getProductById, updateProduct } from '../services/api';
 import './AddProduct.css'; // Reuse styles
 
@@ -64,7 +65,7 @@ const EditProduct = () => {
     <div>
       <Header />
       <div className="add-product-container">
-        <h2 className="add-product-title">Edit Product</h2>
+        <PageTitle title= 'Update Product'/>
         <form className="add-product-form" onSubmit={handleSubmit}>
           <input
             type="text"

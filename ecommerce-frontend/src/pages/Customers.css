@@ -154,8 +154,11 @@ input:checked + .slider:before {
 .delete-button {
   margin-left: 10px;
   color: red; /* Change color to indicate deletion */
+
   cursor: pointer;
   border: none;
   background: none;
-  text-decoration: underline; /* Optional: make it look like a link */
+  text-decoration: none; /* Optional: make it look like a link */
 }
+
+ 

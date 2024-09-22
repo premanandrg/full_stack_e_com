@@ -100,10 +100,12 @@
   cursor: pointer;
   transition: background-color 0.3s;
   font-size: 18px;
+  text-decoration: none;
+
 }
 
 .nav-logout-btn:hover {
-  background-color: #ff4c43;
+  background-color: rgba(172, 255, 47, 0.542)
 }
 
 /* Cart Link Styles */

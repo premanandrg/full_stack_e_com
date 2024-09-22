@@ -8,7 +8,6 @@ import Navbar from '../components/Navbar';
 import PageTitle from '../components/PageTitle';
 import { updateUser } from '../services/api';
 
- 
 const ProfilePage = () => {
     const navigate = useNavigate();
     const currentUser = JSON.parse(localStorage.getItem('currentUser')); // Get user info from local storage
@@ -48,7 +47,7 @@ const ProfilePage = () => {
     return (
         <div className="profile-page">
             <Navbar />
-            <PageTitle title="Profile"/>
+            <PageTitle title="Profile" />
             <div className="profile-container">
                 <div className="profile-header">
                     <FaUserCircle className="profile-main-icon" />
@@ -56,7 +55,7 @@ const ProfilePage = () => {
                 <div className="profile-info">
                     <h2 className="profile-title">{currentUser.name}</h2>
                     {isEditing ? (
-                        <div>
+                        <div className="edit-info">
                             <input
                                 type="text"
                                 value={name}

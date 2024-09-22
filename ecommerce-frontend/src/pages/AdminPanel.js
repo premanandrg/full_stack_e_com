@@ -1,24 +1,25 @@
 import React from 'react';
-import { FiBox, FiPackage, FiShoppingBag, FiUserCheck, FiUsers } from 'react-icons/fi'; // Added FiUserCheck for Sellers icon
+import { FiBox, FiPackage, FiShoppingBag, FiUserCheck, FiUsers } from 'react-icons/fi';
 import { Link, Route, Routes } from 'react-router-dom';
+import AdminFooter from '../components/AdminFooter';
 import AdminHeader from '../components/AdminHeader';
+import PageTitle from '../components/PageTitle';
 import AddProduct from './AddProduct';
+import AddSellerPage from './AddSellerPage';
 import './AdminPanel.css';
 import AdminProducts from './AdminProducts';
 import Customers from './Customers';
 import EditProduct from './EditProduct';
 import OrdersPage from './OrdersPage';
-import SellersPage from './SellersPage'; // Import the Sellers page
-
-import AddSellerPage from './AddSellerPage';
+import SellersPage from './SellersPage';
 
 const AdminPanel = () => {
   return (
     <div>
-      <AdminHeader/>
+      <AdminHeader />
       <div className="admin-panel">
         <nav className="admin-nav">
-          <h2 className="admin-title">Admin Panel</h2>
+          <PageTitle title="Admin Panel" />
           <ul className="nav-list">
             <li>
               <Link to="/admin/customers">
@@ -42,11 +43,11 @@ const AdminPanel = () => {
             </li>
             <li>
               <Link to="/admin/sellers">
-                <FiUserCheck className="icon" /> Sellers {/* Added sellers link */}
+                <FiUserCheck className="icon" /> Sellers
               </Link>
             </li>
             <li>
-            <Link to="/admin/add-seller">
+              <Link to="/admin/add-seller">
                 <FiUserCheck className="icon" /> Add Seller
               </Link>
             </li>
@@ -60,11 +61,12 @@ const AdminPanel = () => {
             <Route path="add-product" element={<AddProduct />} />
             <Route path="products" element={<AdminProducts />} />
             <Route path="edit-product/:productId" element={<EditProduct />} />
-            <Route path="sellers" element={<SellersPage />} /> {/* Added sellers route */}
+            <Route path="sellers" element={<SellersPage />} />
             <Route path="add-seller" element={<AddSellerPage />} />
           </Routes>
         </div>
       </div>
+      <AdminFooter />
     </div>
   );
 };

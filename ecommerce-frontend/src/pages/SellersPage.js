@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../components/AdminFooter';
 import AdminHeader from '../components/AdminHeader';
-import Footer from '../components/Footer';
 import { deleteUserById, getSellers, updateUser } from '../services/api'; // Import deleteUserById
 import './Customers.css'; // Import custom styles
 

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Navbar';
-import '../pages/AdminOrdersPage.js'; // Import your custom CSS
-import { deleteOrder, getAllOrders } from '../services/api'; // Adjust the import based on your service functions
+import Footer from '../components/AdminFooter';
+import Header from '../components/AdminHeader';
+import PageTitle from '../components/PageTitle';
+import '../pages/AdminOrdersPage.css';
+import { deleteOrder, getAllOrders, getProductById } from '../services/api';
 
 const AdminOrdersPage = () => {
   const [orders, setOrders] = useState([]);
@@ -11,9 +12,36 @@ const AdminOrdersPage = () => {
     const fetchOrders = async () => {
       try {
         const response = await getAllOrders(); // Fetch all orders
-        setOrders(response.data);
+        const fetchedOrders = response.data;
+
+        const ordersWithProductDetails = await Promise.all(
+          fetchedOrders.map(async (order) => {
+            const productDetails = await Promise.all(
+              order.items.map(async (item) => {
+                try {
+                  const productResponse = await getProductById(item.productId);
+                  return productResponse.data;
+                } catch (error) {
+                  console.error(`Error fetching product ${item.productId}:`, error);
+                  return {
+                    id: item.productId,
+                    name: 'Product not found',
+                    image: 'path/to/default-image.jpg', // Path to your default image
+                  };
+                }
+              })
+            );
+
+            return {
+              ...order,
+              products: productDetails,
+            };
+          })
+        );
+
+        setOrders(ordersWithProductDetails);
       } catch (error) {
-        console.error('Error fetching orders:', error);
+        console.error('Error fetching orders or product details:', error);
       }
     };
 
@@ -22,8 +50,8 @@ const AdminOrdersPage = () => {
 
   const handleDeleteOrder = async (orderId) => {
     try {
-      await deleteOrder(orderId); // Call your delete order function
-      setOrders(orders.filter(order => order.id !== orderId)); // Update the state to remove the deleted order
+      await deleteOrder(orderId);
+      setOrders(orders.filter(order => order.id !== orderId)); // Update state to remove the deleted order
       alert('Order deleted successfully!');
     } catch (error) {
       console.error('Error deleting order:', error);
@@ -35,16 +63,33 @@ const AdminOrdersPage = () => {
     <div>
       <Header />
       <div className="admin-orders-page">
-        <h2>Admin Orders</h2>
+        <PageTitle title="All Orders" />
 
         {orders.length === 0 ? (
-          <p>No orders found.</p>
+          <p className="no-orders-message">No orders found.</p>
         ) : (
           <div className="orders-list">
             {orders.map((order) => (
               <div key={order.id} className="order-card">
                 <h3>Order #{order.id}</h3>
-                <p>Total Price: ₹{order.totalPrice}</p>
+                <p className="order-price">Total Price: ₹{order.totalPrice}</p>
+                <div className="product-details">
+                  {order.products.map((product) => (
+                    <div key={product.id} className="product-info">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="product-image"
+                        style={{ width: '75px', height: '75px', marginRight: '15px' }}
+                      />
+                      <div className="order-item-details">
+                        <h4>{product.name}</h4>
+                        <p>Quantity: {order.items.find(item => item.productId === product.id).quantity}</p>
+                        <p>Price: ₹{product.price}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
                 <button className="delete-button" onClick={() => handleDeleteOrder(order.id)}>
                   Delete Order
                 </button>

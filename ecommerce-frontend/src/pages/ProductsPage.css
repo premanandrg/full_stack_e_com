@@ -34,3 +34,23 @@
   }
   
  
+  .category-heading-image {
+    width: 20px;
+    /* Adjust width as needed */
+    max-width: 800px;
+    /* Limit the max width */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin: 0 auto;
+    /* Center the image */
+    display: block;
+    /* Ensure it behaves like a block element */
+    object-fit: contain;
+  }
+ 
+
+  .category-header {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  

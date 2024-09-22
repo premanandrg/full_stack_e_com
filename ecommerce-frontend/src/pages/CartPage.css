@@ -95,7 +95,7 @@
   
   .checkout-button {
     padding: 15px 30px;
-    background-color: #fb641b;
+    background-color: green;
     color: white;
     border: none;
     cursor: pointer;
@@ -105,6 +105,58 @@
   }
   
   .checkout-button:hover {
-    background-color: #ff9f00;
+    background-color: green;
   }
   
+
+
+  /* Cart Summary Styling */
+.cart-summary {
+  flex: 0.3;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.price-details {
+  margin-bottom: 20px;
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.price-item.total {
+  font-weight: bold;
+  font-size: 20px;
+  color: #333;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 15px 0;
+  background-color: #28a745;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+  background-color: #218838;
+}
