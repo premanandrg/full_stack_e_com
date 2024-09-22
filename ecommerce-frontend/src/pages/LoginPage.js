@@ -72,9 +72,9 @@ const LoginPage = ({ onLogin, onRegister }) => {
                     </div>
                     <button type="submit" className="login-btn">Login</button>
                 </form>
-                <p className="register-link">
+                <p className="login-register-link">
                     Don't have an account?{' '}
-                    <button onClick={handleRegisterClick} className="register-btn">Register here</button>
+                    <button onClick={handleRegisterClick} className="login-register-btn">Register here</button>
                 </p>
             </div>
         </div>

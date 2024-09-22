@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'; // Use params to get customer ID from the URL
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/Navbar';
 import { getOrdersByUserId } from '../services/api'; // Import your API service for orders
 import './CustomerOrders.css'; // Import custom styles
 

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/Navbar';
+import PageTitle from '../components/PageTitle';
 import { getAddressByUserId } from '../services/api'; // Import the API function
 import './SelectAddressPage.css'; // Import your CSS for styling
 
@@ -12,7 +13,7 @@ const SelectAddressPage = () => {
 
   const [addresses, setAddresses] = useState([]);
   const [loading, setLoading] = useState(true);
-
+ 
   useEffect(() => {
     const fetchAddresses = async () => {
       const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -46,7 +47,8 @@ const SelectAddressPage = () => {
   return (
     <div className="select-address-page">
       <Header />
-      <h2 className="page-title">Select Address</h2>
+       <PageTitle title="Select Address"/>
+
       {addresses.length === 0 ? (
         <div className="no-address-container">
           <p>No addresses found. Please add an address first.</p>

@@ -4,8 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import './ProfilePage.css'; // Import the CSS file for styling
 
 import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import PageTitle from '../components/PageTitle';
 import { updateUser } from '../services/api';
 
+ 
 const ProfilePage = () => {
     const navigate = useNavigate();
     const currentUser = JSON.parse(localStorage.getItem('currentUser')); // Get user info from local storage
@@ -44,15 +47,14 @@ const ProfilePage = () => {
 
     return (
         <div className="profile-page">
-            <header className="page-header">
-                <h1>Welcome, {currentUser.name}!</h1> {/* Display user name */}
-            </header>
+            <Navbar />
+            <PageTitle title="Profile"/>
             <div className="profile-container">
                 <div className="profile-header">
-                    <FaUserCircle className="profile-icon" />
+                    <FaUserCircle className="profile-main-icon" />
                 </div>
                 <div className="profile-info">
-                    <h2 className="profile-title">{currentUser.name}</h2> {/* Display user name */}
+                    <h2 className="profile-title">{currentUser.name}</h2>
                     {isEditing ? (
                         <div>
                             <input

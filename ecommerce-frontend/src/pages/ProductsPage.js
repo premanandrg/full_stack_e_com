@@ -6,7 +6,7 @@ import '../styles.css';
 import './ProductsPage.js';
 
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/Navbar.js';
 
 const ProductsPage = () => {
   const { categoryId } = useParams();

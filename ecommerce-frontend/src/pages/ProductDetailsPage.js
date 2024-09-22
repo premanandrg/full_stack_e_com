@@ -4,7 +4,7 @@ import { addProductToCart, getProductById } from '../services/api';
 import './ProductDetails.css'; // Import the custom CSS
 
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/Navbar';
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -88,7 +88,7 @@ const ProductDetails = () => {
           <div className="product-price-section">
             <p className="product-price">₹{product.price}</p>
             <p className="old-price">₹{product.price + 100}</p>
-            <p className="discount">(₹100 OFF)</p>
+            <p className="discount">(₹{(product.price + 100) - product.price} OFF)</p>
           </div>
 
           <div className="delivery-options">

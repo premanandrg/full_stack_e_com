@@ -2,7 +2,7 @@ import React from 'react';
 
 const TopDeals = () => {
     return (<section className="product-listing container mt-20">
-        <h2>Top Deals</h2>
+          <h2>Featured Products</h2>
         <div className="product-item">
             <img src="https://m.media-amazon.com/images/I/41VASL85n-L._AC_SY220_.jpg" alt="Simmtronics 8 GB Flash Drive USB 2.0 Pendrive " />
             <p>Simmtronics 8 GB Flash Drive USB 2.0 Pendrive </p>

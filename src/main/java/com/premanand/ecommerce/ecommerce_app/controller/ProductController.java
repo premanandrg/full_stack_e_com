@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.premanand.ecommerce.ecommerce_app.dto.ProductDto;
@@ -85,5 +86,12 @@ public class ProductController {
         }
         productService.deleteProduct(productId);
         return ResponseEntity.ok("Product deleted: " + product.getName());
+    }
+
+    // Build REST api to search products
+    @GetMapping("/search")
+    public ResponseEntity<List<ProductDto>> searchProducts(@RequestParam("query") String query) {
+        List<ProductDto> productDtos = productService.searchProducts(query);
+        return ResponseEntity.ok(productDtos);
     }
 }

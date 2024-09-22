@@ -10,5 +10,6 @@ import com.premanand.ecommerce.ecommerce_app.entity.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
         List<Product> getProductsByCategoryId(Long categoryId);
+        List<Product> findByNameContainingIgnoreCase(String name);
 
 }

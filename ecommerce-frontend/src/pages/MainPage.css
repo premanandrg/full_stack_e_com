@@ -12,11 +12,12 @@
 
 .hero-section {
   text-align: center;
-  background-color: #2874f0;
+  background-color: #419903da;
   color: white;
   padding: 40px 20px;
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin: 10px;
+ 
 }
 
 .hero-section h1 {
@@ -26,7 +27,7 @@
 
 .hero-section p {
   font-size: 20px;
-  margin: 10px 0 20px;
+ 
 }
 
 .shop-now-btn {
@@ -45,6 +46,7 @@
 
 .featured-products {
   margin-top: 20px;
+  padding: 0px;
 }
 
 .featured-products h2 {

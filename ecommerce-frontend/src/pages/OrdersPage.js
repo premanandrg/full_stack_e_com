@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/Navbar';
+import PageTitle from '../components/PageTitle';
 import { getOrdersByUserId, getProductById } from '../services/api';
 import './OrdersPage.css';
 
 const OrdersPage = () => {
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate();
-  
+   
   // Get the user ID from local storage
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   const userId = currentUser ? currentUser.id : null; // Get actual user ID
@@ -73,10 +74,10 @@ const OrdersPage = () => {
   };
 
   return (
-    <div>
+    <> {/* Removed unnecessary div */}
       <Header />
       <div className="orders-page">
-        <h2>Your Orders</h2>
+      <PageTitle title="My Orders"/>
 
         {orders.length === 0 ? (
           <p className="no-orders-message">You have no orders yet.</p>
@@ -93,9 +94,13 @@ const OrdersPage = () => {
                         src={product.image}
                         alt={product.name}
                         className="product-image"
-                        style={{ width: '50px', height: '50px', marginRight: '10px' }}
+                        style={{ width: '75px', height: '75px', marginRight: '15px' }}
                       />
-                      <span className="product-name">{product.name}</span>
+                      <div className="order-item-details">
+                        <h4>{product.name}</h4>
+                        <p>Quantity: {order.items.find(item => item.productId === product.id).quantity}</p>
+                        <p>Price: ₹{product.price}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -106,7 +111,7 @@ const OrdersPage = () => {
         )}
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

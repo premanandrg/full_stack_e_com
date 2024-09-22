@@ -1,0 +1,16 @@
+.page-title-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .page-title {
+    font-size: 24px; /* You can adjust this size to your preference */
+    font-weight: bold;
+  }
+  
+  .page-title-divider {
+    width: 50px;
+    margin: 10px auto;
+    border: 1px solid #ccc; /* Customize divider style */
+  }
+  

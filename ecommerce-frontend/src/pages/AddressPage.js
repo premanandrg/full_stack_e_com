@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/Navbar';
 import { deleteAddress, getAddressByUserId } from '../services/api'; // Import the new function
 import './AddressPage.css';
 

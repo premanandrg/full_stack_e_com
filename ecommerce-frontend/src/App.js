@@ -24,9 +24,14 @@ import ProductDetails from './pages/ProductDetailsPage';
 import Products from './pages/ProductsPage';
 import ProfilePage from './pages/ProfilePage';
 import Register from './pages/RegisterPage';
+import SearchResultsPage from './pages/SearchResultsPage';
 import SelectAddressPage from './pages/SelectAddressPage'; // Import OrderPlacedPage component
 import SellerPanel from './pages/SellerPanel';
 import SellersPage from './pages/SellersPage';
+
+
+
+
 
 function App() {
   return (
@@ -35,6 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/search" element={<SearchResultsPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<Register />} />

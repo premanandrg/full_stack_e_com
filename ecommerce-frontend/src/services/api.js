@@ -10,7 +10,9 @@ export const addProduct = (product) => axios.post(`${API_URL}/products`, product
 export const updateProduct = (product) => axios.put(`${API_URL}/products`, product);
 export const deleteProduct = (id) => axios.delete(`${API_URL}/products/${id}`);
 export const getProductsByCategoryId = (categoryId) => axios.get(`${API_URL}/products/category/${categoryId}`);
-
+export const searchProducts = async (query) => {
+    return await axios.get(`${API_URL}/products/search?query=${query}`); // Adjust API endpoint as needed
+  };
 // Address endpoints
 export const addAddress = (address) => axios.post(`${API_URL}/address`, address);
 export const getAllAddresses = () => axios.get(`${API_URL}/address`);

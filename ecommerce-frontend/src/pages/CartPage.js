@@ -4,7 +4,9 @@ import { addProductToCart, getCartByUserId, getProductById, removeProductFromCar
 import './CartPage.css'; // Import the custom CSS
 
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/Navbar';
+
+import PageTitle from '../components/PageTitle';
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -104,7 +106,7 @@ const CartPage = () => {
       <Header />
       <div className="cart-page">
 
-        <h2 className="cart-title">Shopping Cart</h2>
+      <PageTitle title="Shopping Cart"/>
 
         {cartItems.length === 0 ? (
           <p>Your cart is empty. <a href="/">Start shopping</a></p>

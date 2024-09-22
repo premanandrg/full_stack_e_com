@@ -1,8 +1,7 @@
-// src/components/Header.js
-
+ 
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import './Header.css';
+import '../components/NavBar.css';
 
 const AdminHeader = () => {
   return (

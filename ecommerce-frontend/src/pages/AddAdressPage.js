@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/Navbar';
 import { addAddress } from '../services/api';
 import './AddAddressPage.css'; // Importing the CSS for styling
 

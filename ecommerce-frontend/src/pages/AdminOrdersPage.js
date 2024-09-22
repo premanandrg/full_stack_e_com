@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/Navbar';
 import '../pages/AdminOrdersPage.js'; // Import your custom CSS
 import { deleteOrder, getAllOrders } from '../services/api'; // Adjust the import based on your service functions
 
